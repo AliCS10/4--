@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة المعلومات</title>
+    <style>
+          body {
+            font-family: 'Tajawal', Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #20443b;
+            padding: 120px 20px;
+            position: relative;
+            color: #fff;
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
+            background-image: url('https://i.ibb.co/BPYLXXh/Element.png');
+            background-repeat: no-repeat;
+            background-position: 50% 80%;
+            background-size: 110%;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar ul li {
+            display: inline;
+            margin-left: 20px;
+            font-size: 25px;
+        }
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar .login-btn {
+            background-color: #00B760;
+            padding: 20px 80px; /* تكبير الصندوق */
+            width: 222 ;
+            height: 48;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            top: 80px; /* رفع الصندوق للأعلى */
+            left: 20px;
+            font-size: 20px; /* زيادة حجم النص */
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 100px;
+            height: auto;
+        }
+
+        .content {
+            padding: 40px;
+        }
+        .info {
+            margin: 20px auto;
+            text-align: center;
+            color: #222663;
+        }
+        .info h2 {
+            font-size: 24px;
+            color: #222663;
+        }
+        .info ul {
+            list-style-type: disc;
+            margin: 20px auto;
+            padding: 0;
+            display: inline-block;
+            text-align: right;
+            color: #555;
+        }
+        .info ul li {
+            font-size: 18px;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .crop-grid {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 40px auto;
+        }
+        .crop-grid div {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .crop-grid .rice {
+            background-color: #ff9800;
+        }
+        .crop-grid .chickpea {
+            background-color: #4caf50;
+        }
+        .plan-action {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .plan-action h2 {
+            font-size: 24px;
+            color: #222663;
+        }
+        .plan-action p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="info">
+            <h2>المحاصيل</h2>
+            <ul>
+                <li>المحصول الأول هو <strong>الأرز</strong> بإنتاجية تبلغ <strong>150,228.16 كجم</strong>.</li>
+                <li>المحصول الثاني هو <strong>الحمص</strong> بإنتاجية تصل إلى <strong>62,918.69 كجم</strong>.</li>
+                <li>الإيرادات المتوقعة من المحصولين تقدر بحوالي <strong>66,299.23 دولار</strong>.</li>
+            </ul>
+            <h1>لوحة المعلومات</h1>
+        </div>
+
+        <!-- شبكة المحاصيل -->
+        <div class="crop-grid">
+            <div class="chickpea">C</div>
+            <div class="rice">R</div>
+            <div class="chickpea">C</div>
+            <div class="rice">R</div>
+        </div>
+
+        <div class="plan-action">
+            <h2>خطة العمل القادمة</h2>
+            <p>في أكتوبر، يجب على المزارعين البدء بإعداد الأرض لزراعة الأرز والحمص...</p>
+        </div>
+    </div>
+</body>
+</html>

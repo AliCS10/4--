@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل الفاتورة</title>
+    <style>
+          body {
+            font-family: 'Tajawal', Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #20443b;
+            padding: 120px 20px;
+            position: relative;
+            color: #fff;
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
+            background-image: url('https://i.ibb.co/BPYLXXh/Element.png');
+            background-repeat: no-repeat;
+            background-position: 50% 80%;
+            background-size: 110%;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar ul li {
+            display: inline;
+            margin-left: 20px;
+            font-size: 25px;
+        }
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar .login-btn {
+            background-color: #00B760;
+            padding: 20px 80px; /* تكبير الصندوق */
+            width: 222 ;
+            height: 48;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            top: 80px; /* رفع الصندوق للأعلى */
+            left: 20px;
+            font-size: 20px; /* زيادة حجم النص */
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 100px; /* حجم الشعار */
+            height: auto;
+        }
+        .output-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 80vh;
+            padding: 20px;
+        }
+        .invoice-image {
+            width: 300px; /* تم تقليص العرض إلى 300px */
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .output-section {
+            text-align: right;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        .output-section h2 {
+            color: #222663; /* اللون الجديد */
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .invoice-form {
+            text-align: right;
+            direction: rtl;
+        }
+        .invoice-form p {
+            display: block;
+            font-size: 14px;
+            margin: 8px auto;
+            text-align: right;
+            color: #333;
+        }
+        .submit-btn, .download-btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 8px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(100% - 20px);
+            margin-top: 10px;
+        }
+        .submit-btn:hover, .download-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
+        <a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a>
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="الخدمات.html">الخدمات</a></li>
+            <li><a href="من نحن؟.html">لوحة المعلومات</a></li>
+            <li><a href="output.html">رصد الزرعة</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
+        </ul>
+    </div>
+
+    <div class="output-container">
+        <div>
+            <img id="invoiceImage" src="https://i.ibb.co/KhVQpqy/image.png" alt="صورة الفاتورة" class="invoice-image">
+        </div>
+        <div class="output-section">
+            <h2>البيانات المستخرجة</h2>
+            <div class="invoice-form">
+                <h3>النتيجة: تم اكتشاف علامات على البياض الدقيقي على الأوراق</h3>
+                <h3>الوصف: يظهر البياض الدقيقي كطبقة بيضاء أو رمادية على سطح الأوراق، مما يؤثر على عملية التمثيل الضوئي ويضعف النبات.</h3>
+                   <h3>التوصيات:
+
+                 قم بإزالة الأوراق المصابة لتقليل انتشار العدوى.
+                    استخدم مبيد فطري مناسب مثل الكبريت الميكروني وفقاً للتعليمات.
+                    حافظ على التهوية الجيدة بين النباتات لتقليل الرطوبة.</h3>
+                <button class="submit-btn" onclick="saveData()">حفظ</button>
+                <button class="download-btn" onclick="downloadPDF()">تحميل الفاتورة بصيغة .pdf</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: "portrait", // وضع العمود
+                unit: "mm",
+                format: "a4",
+                putOnlyUsedFonts: true,
+                floatPrecision: 16 // عدد النقاط العشرية
+            });
+            // إضافة الصورة
+            const imgUrl = "https://i.ibb.co/rpsXFZd/image.png";
+            const img = new Image();
+            img.src = imgUrl;
+
+            img.onload = function() {
+                const imgWidth = 200;
+                const imgHeight = (img.width / img.height) * imgWidth;
+                doc.addImage(img, "PNG", 10, 10, imgWidth, imgHeight);
+                doc.save("فاتورة.pdf");
+            };
+        }
+
+        function saveData() {
+            alert("تم حفظ المعلومات بنجاح في نظامك المحاسبي");
+        }
+    </script>
+
+</body>
+</html>
