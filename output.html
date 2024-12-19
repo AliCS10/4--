@@ -41,6 +41,21 @@
     </div>
 
     <!-- Chatbot Icon Section -->
+  <script>
+        const fileUpload = document.getElementById('file-upload');
+        const uploadedImage = document.getElementById('uploaded-image');
 
+        fileUpload.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = 'block'; // عرض الصورة
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>
