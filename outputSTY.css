@@ -124,3 +124,17 @@ body {
     margin-top: 20px;
     display: none; /* مخفي في البداية */
 }
+.chatbot-icon {
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.chatbot-icon img {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
