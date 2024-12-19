@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="analysis.css">
-    <title>تحليل الفاتورة</title>
+    <title>الخدمات</title>
+    <link rel="stylesheet" href="service.css">
 </head>
 <body>
 
     <div class="navbar">
+
         <img src="https://i.ibb.co/M8wGT4V/Title-3-1.png" alt="شعار دقة" class="logo">
         <a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a>
         <ul>
@@ -20,55 +21,27 @@
         </ul>
     </div>
 
-    <div class="output-container">
-        <div>
-            <img id="invoiceImage" src="https://i.ibb.co/KhVQpqy/image.png" alt="صورة الفاتورة" class="invoice-image">
-        </div>
-        <div class="output-section">
-            <h2>البيانات المستخرجة</h2>
-            <div class="invoice-form">
-                <h3>النتيجة: تم اكتشاف علامات على البياض الدقيقي على الأوراق</h3>
-                <h3>الوصف: يظهر البياض الدقيقي كطبقة بيضاء أو رمادية على سطح الأوراق، مما يؤثر على عملية التمثيل الضوئي ويضعف النبات.</h3>
-                   <h3>التوصيات:
+    <div class="content">
+        <div class="services">
+            <!-- خدمة تحليل الزرعة -->
+            <a href="output.html" style="text-decoration: none;">
+                <div class="service-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5656/5656113.png" alt="تحليل الزرعة">
+                    <h1>تحليل الزرعة</h1>
+                    <h2>استخدام الذكاء الاصطناعي لتحليل صور المحاصيل المرفوعة لتحديد المشاكل الزراعية بدقة وتقديم توصيات علاجية فعّالة.</h2>
+                </div>  
+            </a>
 
-                 قم بإزالة الأوراق المصابة لتقليل انتشار العدوى.
-                    استخدم مبيد فطري مناسب مثل الكبريت الميكروني وفقاً للتعليمات.
-                    حافظ على التهوية الجيدة بين النباتات لتقليل الرطوبة.</h3>
-                <button class="submit-btn" onclick="saveData()">حفظ</button>
-                <button class="download-btn" onclick="downloadPDF()">تحميل الصورة بصيغة .pdf</button>
-            </div>
+            <!-- خدمة لوحة المعلومات (Dashboard) -->
+            <a href="من نحن؟.html" style="text-decoration: none;">
+                <div class="service-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6821/6821002.png" alt="لوحة المعلومات (dashboard)">
+                    <h1>لوحة المعلومات</h1>
+                    <h2> تقديم استراتيجيات زراعية مخصصة تعتمد على تحليل بيانات التربة والموقع الزراعي، مما يساعد في تحسين الإنتاجية واستخدام الموارد بكفاءة.</h2>
+                </div>
+            </a>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script>
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-                orientation: "portrait", // وضع العمود
-                unit: "mm",
-                format: "a4",
-                putOnlyUsedFonts: true,
-                floatPrecision: 16 // عدد النقاط العشرية
-            });
-            // إضافة الصورة
-            const imgUrl = "https://i.ibb.co/KhVQpqy/image.png";
-            const img = new Image();
-            img.src = imgUrl;
-
-            img.onload = function() {
-                const imgWidth = 200;
-                const imgHeight = (img.width / img.height) * imgWidth;
-                doc.addImage(img, "PNG", 10, 10, imgWidth, imgHeight);
-                doc.save("صورة الزرعة بعد التحليل.pdf");
-            };
-        }
-
-        function saveData() {
-            alert("تم حفظ المعلومات بنجاح ");
-        }
-    </script>
-
+    
 </body>
 </html>
