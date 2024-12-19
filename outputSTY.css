@@ -35,7 +35,7 @@ body {
     padding: 20px 80px; /* تكبير الصندوق */
     width: 222 ;
     height: 48;
-    border-radius: 8px;
+    border-radius: 8px;             
     color: white;
     text-decoration: none;
     position: absolute;
@@ -50,65 +50,91 @@ body {
     width: 400px;
     height: auto;
 }
-.output-container {
+.content {
+    padding: 40px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    height: 80vh;
-    padding: 20px;
-    flex-direction: row-reverse; /* يجعل آخر عنصر في HTML يظهر على اليسار */
+    align-items: center;
+    gap: 40px;
 }
-.invoice-image {
-    width: 300px; /* تم تقليص العرض إلى 300px */
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+.upload-section {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+.upload-section p {
+    font-size: 18px;
+    color: #333;
+}
+.upload-section input[type="file"] {
+    display: none;
+}
+.upload-section label {
+    color: #222663; /* اللون الجديد */
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #222663; /* اللون الجديد */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.analyze-btn {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
 }
 .output-section {
-    text-align: right;
+    text-align: left;
     width: 300px;
+    background-color: #fff;
     padding: 20px;
-    background-color: #fff; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
-    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 .output-section h2 {
     color: #222663; /* اللون الجديد */
-    font-size: 18px;
+    font-size: 20px;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
+    padding-bottom: 10px;
 }
-.invoice-form {
-    text-align: right;
-    direction: rtl;
-}
-.invoice-form p {
-    display: block;
-    font-size: 14px;
-    margin: 8px auto;
-    text-align: right;
-    color: #333;
-}
-.submit-btn, .download-btn {
+.download-btn {
+    margin-top: 20px;
     background-color: #28a745;
-    color: #fff;
-    padding: 8px;
-    font-size: 14px;
+    color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    width: calc(100% - 20px);
-    margin-top: 10px;
 }
-.submit-btn:hover, .download-btn:hover {
-    background-color: #218838;
+#uploaded-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: none; /* مخفي في البداية */
+}
+.chatbot-icon {
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    z-index: 1000; /* Ensure it stays on top */
 }
 
-
-.location-box {
-    width: 3px; 
-
+.chatbot-icon img {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
 }
