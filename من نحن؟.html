@@ -12,12 +12,12 @@
             background-color: #f4f4f4;
             text-align: center;
         }
-          .navbar {
+        .navbar {
             background-color: #20443b;
             padding: 120px 20px;
             position: relative;
             color: #fff;
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 80%);
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
             background-image: url('https://i.ibb.co/BPYLXXh/Element.png');
             background-repeat: no-repeat;
             background-position: 50% 80%;
@@ -52,9 +52,9 @@
         }
         .logo {
             position: absolute;
-            top: 10px;
-            right: 20px;
-            width: 100px;
+            top: 30px;
+            right: 25px;
+            width: 200px;
             height: auto;
         }
         .content {
@@ -138,7 +138,7 @@
 </head>
 <body>
     <div class="navbar">
-        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
+        <img src="https://i.ibb.co/M8wGT4V/Title-3-1.png" alt="شعار دقة" class="logo">
         <a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a>
         <ul>
             <li><a href="index.html">الصفحة الرئيسية</a></li>
@@ -156,8 +156,12 @@
             <div class="table">
                 <h2>بيانات التربة</h2>
                 <div class="value-box">
+                    <label for="nitrogen">نوع التربة:</label>
+                    <input type="text" id="nitrogen" value="سماد">
+                </div>
+                <div class="value-box">
                     <label for="nitrogen">النيتروجين:</label>
-                    <input type="number" id="nitrogen" value="85">
+                    <input type="number" id="nitrogen" value="20">
                 </div>
                 <div class="value-box">
                     <label for="phosphorous">الفوسفور:</label>
@@ -192,15 +196,23 @@
 
             <!-- البيانات الشخصية -->
             <div class="table">
-                <h2>البيانات الشخصية</h2>
+                <h2>بيانات المزرعة</h2>
                 <div class="value-box">
                     <label for="area">المساحة:</label>
                     <input type="number" id="area" value="100">
                 </div>
                 <div class="value-box">
                     <label for="location">الموقع:</label>
-                    <input type="text" id="location" value="Ananthpur">
+                    <input type="text" id="location" value="جازان">
                 </div>
+                <div class="value-box">
+                    <label for="Type">نوع المحصول:</label>
+                    <input type="text" id="location" value="الأرز">
+                </div>
+                <div class="value-box">
+                    <label for="location"> المحصول الاخر : </label>
+                    <input type="text" id="location" value="الحمص">
+            </div>
             </div>
         </div>
 
