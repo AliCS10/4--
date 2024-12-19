@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الخدمات</title>
-    <link rel="stylesheet" href="service.css">
+    <title>تحليل الفاتورة</title>
+    <link rel="stylesheet" href="analysis.css">
 </head>
 <body>
 
     <div class="navbar">
-
         <img src="https://i.ibb.co/M8wGT4V/Title-3-1.png" alt="شعار دقة" class="logo">
         <a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a>
         <ul>
@@ -21,27 +20,69 @@
         </ul>
     </div>
 
-    <div class="content">
-        <div class="services">
-            <!-- خدمة تحليل الزرعة -->
-            <a href="output.html" style="text-decoration: none;">
-                <div class="service-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5656/5656113.png" alt="تحليل الزرعة">
-                    <h1>تحليل الزرعة</h1>
-                    <h2>استخدام الذكاء الاصطناعي لتحليل صور المحاصيل المرفوعة لتحديد المشاكل الزراعية بدقة وتقديم توصيات علاجية فعّالة.</h2>
-                </div>  
-            </a>
+    <div class="output-container">
+        <!-- Location box on the left -->
+        <div>
+            <h3>حدد منطقتك</h3>
+            <input type="text" id="region-input" placeholder="ادخل اسم منطقتك">
+            <button class="submit-btn" onclick="showNearestPlace()">تأكيد</button>
+            <div id="nearest-place" style="display:none; font-weight:bold; color:#20443b; margin-top:10px;">
+                <!-- Not used now, since we show an alert instead -->
+            </div>
+        </div>
 
-            <!-- خدمة لوحة المعلومات (Dashboard) -->
-            <a href="من نحن؟.html" style="text-decoration: none;">
-                <div class="service-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6821/6821002.png" alt="لوحة المعلومات (dashboard)">
-                    <h1>لوحة المعلومات</h1>
-                    <h2> تقديم استراتيجيات زراعية مخصصة تعتمد على تحليل بيانات التربة والموقع الزراعي، مما يساعد في تحسين الإنتاجية واستخدام الموارد بكفاءة.</h2>
-                </div>
-            </a>
+        <!-- Invoice image in the middle -->
+        <div>
+            <img src="https://i.ibb.co/KhVQpqy/image.png" alt="صورة الفاتورة" class="invoice-image">
+        </div>
+
+        <!-- Output section on the right -->
+        <div class="output-section">
+            <h2>البيانات المستخرجة</h2>
+            <div class="invoice-form">
+                <h3>النتيجة: تم اكتشاف علامات على البياض الدقيقي على الأوراق</h3>
+                <h3>الوصف: يظهر البياض الدقيقي كطبقة بيضاء أو رمادية على سطح الأوراق، مما يؤثر على عملية التمثيل الضوئي ويضعف النبات.</h3>
+                <h3>التوصيات:
+                    <br>قم بإزالة الأوراق المصابة لتقليل انتشار العدوى.
+                    <br>استخدم مبيد فطري مناسب مثل الكبريت الميكروني وفقاً للتعليمات.
+                    <br>حافظ على التهوية الجيدة بين النباتات لتقليل الرطوبة.
+                </h3>
+                <button class="submit-btn" onclick="saveData()">حفظ</button>
+                <button class="download-btn" onclick="downloadPDF()">تحميل الصورة بصيغة .pdf</button>
+            </div>
         </div>
     </div>
-    
+
+    <script>
+        function showNearestPlace() {
+            const regionInput = document.getElementById('region-input').value.trim();
+            if(regionInput) {
+                // Show the requested message in an alert
+                alert("أقرب مكان مناسب يمكنك شراء الأدوات المساعدة : محل سعيد مسعود الغامدي للمبيعات والاسمده الزراعيه في منطقتك");
+            } else {
+                alert("يرجى إدخال منطقتك أولاً");
+            }
+        }
+
+        function saveData() {
+            alert("تم حفظ المعلومات بنجاح");
+        }
+
+        function downloadPDF() {
+            alert("تم التحميل");
+        }
+    </script>
+<script>
+    window.embeddedChatbotConfig = {
+        chatbotId: "t6oLFxCSRKwWXtUT5GcDE",
+        domain: "www.chatbase.co"
+    }
+</script>
+<script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="t6oLFxCSRKwWXtUT5GcDE"
+    domain="www.chatbase.co"
+    defer>
+</script>
 </body>
 </html>
