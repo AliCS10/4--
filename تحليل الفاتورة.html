@@ -12,12 +12,12 @@
             background-color: #f4f4f4;
             text-align: center;
         }
-           .navbar {
+        .navbar {
             background-color: #20443b;
             padding: 120px 20px;
             position: relative;
             color: #fff;
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 80%);
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
             background-image: url('https://i.ibb.co/BPYLXXh/Element.png');
             background-repeat: no-repeat;
             background-position: 50% 80%;
@@ -52,9 +52,9 @@
         }
         .logo {
             position: absolute;
-            top: 10px;
-            right: 20px;
-            width: 100px; /* حجم الشعار */
+            top: 30px;
+            right: 25px;
+            width: 200px;
             height: auto;
         }
         .output-container {
@@ -117,7 +117,7 @@
 <body>
 
     <div class="navbar">
-        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
+        <img src="https://i.ibb.co/M8wGT4V/Title-3-1.png" alt="شعار دقة" class="logo">
         <a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a>
         <ul>
             <li><a href="index.html">الصفحة الرئيسية</a></li>
@@ -143,7 +143,7 @@
                     استخدم مبيد فطري مناسب مثل الكبريت الميكروني وفقاً للتعليمات.
                     حافظ على التهوية الجيدة بين النباتات لتقليل الرطوبة.</h3>
                 <button class="submit-btn" onclick="saveData()">حفظ</button>
-                <button class="download-btn" onclick="downloadPDF()">تحميل الفاتورة بصيغة .pdf</button>
+                <button class="download-btn" onclick="downloadPDF()">تحميل الصورة بصيغة .pdf</button>
             </div>
         </div>
     </div>
@@ -161,7 +161,7 @@
                 floatPrecision: 16 // عدد النقاط العشرية
             });
             // إضافة الصورة
-            const imgUrl = "https://i.ibb.co/rpsXFZd/image.png";
+            const imgUrl = "https://i.ibb.co/KhVQpqy/image.png";
             const img = new Image();
             img.src = imgUrl;
 
@@ -169,12 +169,12 @@
                 const imgWidth = 200;
                 const imgHeight = (img.width / img.height) * imgWidth;
                 doc.addImage(img, "PNG", 10, 10, imgWidth, imgHeight);
-                doc.save("فاتورة.pdf");
+                doc.save("صورة الزرعة بعد التحليل.pdf");
             };
         }
 
         function saveData() {
-            alert("تم حفظ المعلومات بنجاح في نظامك المحاسبي");
+            alert("تم حفظ المعلومات بنجاح ");
         }
     </script>
 
