@@ -56,6 +56,7 @@ body {
     align-items: flex-start;
     height: 80vh;
     padding: 20px;
+    flex-direction: row-reverse; /* يجعل آخر عنصر في HTML يظهر على اليسار */
 }
 .invoice-image {
     width: 300px; /* تم تقليص العرض إلى 300px */
@@ -104,4 +105,10 @@ body {
 }
 .submit-btn:hover, .download-btn:hover {
     background-color: #218838;
+}
+
+
+.location-box {
+    width: 3px; 
+
 }
