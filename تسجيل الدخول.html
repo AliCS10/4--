@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل دخول</title>
-    <link rel="stylesheet" href="logIN.css">
-
+    <title>تسجيل حساب جديد</title>
+    <link rel="stylesheet" href="SignIN.css">
 </head>
 <body>
 
     <div class="navbar">
-        <img src="https://i.ibb.co/M8wGT4V/Title-3-1.png" alt="شعار دقة" class="logo">
-        <a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a>
+        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
         <ul>
             <li><a href="index.html">الصفحة الرئيسية</a></li>
             <li><a href="الخدمات.html">الخدمات</a></li>
-            <li><a href="output.html">رصد الزرعة</a></li>
+            <li><a href="من نحن؟.html">من نحن؟</a></li>
+            <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
+            <li><a href="output.html">الفاتورة</a></li>
             <li><a href="اشترك معنا.html">اشترك معنا</a></li>
         </ul>
     </div>
 
     <div class="content">
-        <h2>تسجيل دخول</h2>
-        <p>الرجاء إدخال بياناتك لتسجيل الدخول.</p>
-        <div class="login-form">
-            <form action="login.php" method="POST">
+        <h2>تسجيل حساب جديد</h2>
+        <p>الرجاء إدخال بياناتك لإنشاء حساب جديد.</p>
+        <div class="register-form">
+            <form action="register.php" method="POST">
                 <label for="email">البريد الإلكتروني</label>
                 <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
                 
                 <label for="password">كلمة المرور</label>
                 <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
                 
-                <button type="submit">تسجيل دخول</button>
+                <button type="submit">تسجيل</button>
             </form>
-            <div class="register-link">
-                <span>ليس لديك حساب؟ </span>
-                <a href="تسجيل حساب جديد.html">قم بإنشاء حساب جديد الآن</a>
+            <div class="login-link">
+                <span>هل لديك حساب بالفعل؟ </span>
+                <a href="تسجيل الدخول.html">قم بتسجيل الدخول الآن</a>
             </div>
         </div>
     </div>
