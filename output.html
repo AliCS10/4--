@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المخرجات</title>
-     <link rel="stylesheet" href="outputSTY.css">
+    <link rel="stylesheet" href="outputSTY.css">
 </head>
 <body>
 
@@ -40,22 +40,7 @@
         </div>
     </div>
 
-    <script>
-        const fileUpload = document.getElementById('file-upload');
-        const uploadedImage = document.getElementById('uploaded-image');
-
-        fileUpload.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    uploadedImage.src = e.target.result;
-                    uploadedImage.style.display = 'block'; // عرض الصورة
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
+    <!-- Chatbot Icon Section -->
 
 </body>
 </html>
