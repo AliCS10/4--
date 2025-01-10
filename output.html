@@ -1,130 +1,134 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المخرجات</title>
-    <link rel="stylesheet" href="output.css">
-</head>
-<body>
-
-    <div class="navbar">
-        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
-        <ul>
-            <li><a href="index.html">الصفحة الرئيسية</a></li>
-            <li><a href="الخدمات.html">الخدمات</a></li>
-            <li><a href="من نحن؟.html">من نحن؟</a></li>
-            <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
-            <li><a href="output.html">الفاتورة</a></li>
-            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
-            <li><a href="dashboard.html">لوحة المعلومات</a></li>
-        </ul>
-    </div>
-
-    <div class="content">
-        <!-- قسم التحميل -->
-        <div class="upload-section">
-            <p>ارفع فاتورتك وضع النظام ينجز العمل نيابةً عنك!</p>
-            <label for="file-upload">اسحب الملف وأفلته هنا</label>
-            <input type="file" id="file-upload" accept="image/*">
-            
-            <!-- زر تحليل الفاتورة -->
-            <form action="تحليل الفاتورة.html" method="get">
-                <button type="submit" class="analyze-btn">تحليل الفاتورة</button>
-            </form>
-
-            <!-- زر تصوير الفاتورة -->
-            <button class="capture-btn" id="capture-btn">تصوير الفاتورة</button>
-
-            <!-- زر إرفاق أكثر من فاتورة -->
-            <button class="multi-upload-btn" id="multi-upload-btn">إرفاق أكثر من فاتورة</button>
-            <input type="file" id="multi-file-upload" accept="image/*" multiple style="display: none;">
-            
-            <!-- زر تحليل الفواتير -->
-            <a href="تحليل.فواتير.html" class="analyze-multiple-btn">تحليل الفواتير</a>
-        </div>
-
-        <!-- قسم عرض الصور المرفوعة -->
-        <div class="output-section">
-            <h2>الفواتير المرفوعة</h2>
-            <div id="multi-invoices-container">
-                <!-- سيتم عرض الصور المرفوعة هنا -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const fileUpload = document.getElementById('file-upload');
-        const uploadedImage = document.getElementById('uploaded-image');
-        const captureBtn = document.getElementById('capture-btn');
-        const cameraStream = document.getElementById('camera-stream');
-
-        const multiUploadBtn = document.getElementById('multi-upload-btn');
-        const multiFileUpload = document.getElementById('multi-file-upload');
-        const multiInvoicesContainer = document.getElementById('multi-invoices-container');
-
-        // تحميل الصورة من الملفات
-        fileUpload.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    uploadedImage.src = e.target.result;
-                    uploadedImage.style.display = 'block';
-                    cameraStream.style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // التصوير باستخدام الكاميرا
-        captureBtn.addEventListener('click', function() {
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then((stream) => {
-                    cameraStream.srcObject = stream;
-                    cameraStream.style.display = 'block';
-
-                    // أخذ لقطة عند التوقف
-                    setTimeout(() => {
-                        const canvas = document.createElement('canvas');
-                        canvas.width = cameraStream.videoWidth;
-                        canvas.height = cameraStream.videoHeight;
-                        canvas.getContext('2d').drawImage(cameraStream, 0, 0);
-                        uploadedImage.src = canvas.toDataURL('image/png');
-                        uploadedImage.style.display = 'block';
-                        cameraStream.style.display = 'none';
-                        stream.getTracks().forEach((track) => track.stop());
-                    }, 3000);
-                })
-                .catch((error) => {
-                    alert("تعذر الوصول إلى الكاميرا: " + error.message);
-                });
-        });
-
-        // زر إرفاق أكثر من فاتورة
-        multiUploadBtn.addEventListener('click', function() {
-            multiFileUpload.click();
-        });
-
-        // تحميل عدة فواتير
-        multiFileUpload.addEventListener('change', function(event) {
-            const files = Array.from(event.target.files);
-            multiInvoicesContainer.innerHTML = ''; // تفريغ الحاوية
-            files.forEach((file, index) => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imageWrapper = document.createElement('div');
-                    imageWrapper.classList.add('invoice-wrapper');
-                    imageWrapper.innerHTML = `
-                        <img src="${e.target.result}" alt="فاتورة ${index + 1}" class="invoice-image">
-                        <p>فاتورة رقم: ${index + 1}</p>
-                    `;
-                    multiInvoicesContainer.appendChild(imageWrapper);
-                };
-                reader.readAsDataURL(file);
-            });
-        });
-    </script>
-
-</body>
-</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.navbar {
+    background-color: #222663; 
+    padding: 20px;
+    color: #fff;
+    position: relative; 
+}
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .login-btn {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+}
+.content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.upload-section {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.upload-section p {
+    font-size: 18px;
+    color: #333;
+}
+.upload-section input[type="file"] {
+    display: none;
+}
+.upload-section label {
+    color: #222663; 
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #222663; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.analyze-btn, .capture-btn, .multi-upload-btn {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.analyze-btn:hover, .capture-btn:hover, .multi-upload-btn:hover {
+    background-color: #218838;
+}
+.output-section {
+    text-align: left;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.output-section h2 {
+    color: #222663;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+#multi-invoices-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.invoice-wrapper {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.invoice-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.analyze-multiple-btn {
+    margin-top: 20px;
+    background-color: #ffc107;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+.analyze-multiple-btn:hover {
+    background-color: #e0a800;
+}
